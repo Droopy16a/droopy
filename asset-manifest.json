@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/droopy/static/css/main.89dd7847.css",
+    "main.js": "/droopy/static/js/main.73d56f60.js",
+    "index.html": "/droopy/index.html",
+    "main.89dd7847.css.map": "/droopy/static/css/main.89dd7847.css.map",
+    "main.73d56f60.js.map": "/droopy/static/js/main.73d56f60.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89dd7847.css",
+    "static/js/main.73d56f60.js"
+  ]
+}
