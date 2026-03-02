@@ -1,9 +1,13 @@
+:root {
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .App {
   width: 100%;
-  min-height: 100%;
-  background: #ffffff;
-  background: radial-gradient(circle,rgba(9, 21, 54, 1) 0%, rgba(2, 7, 24, 1) 60%);
+  min-height: 100dvh;
+  background: radial-gradient(circle, rgba(9, 21, 54, 1) 0%, rgba(2, 7, 24, 1) 60%);
   overflow-x: hidden;
+  transition: background 160ms linear;
 }
 
 html {
@@ -18,7 +22,120 @@ section[id] {
   animation: blink 1s steps(1, start) infinite;
 }
 
+.brand-font {
+  font-family: "Space Grotesk", "Manrope", "Segoe UI", sans-serif;
+}
+
+.floating-orb {
+  filter: blur(60px);
+  opacity: 0.75;
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb-two {
+  animation-delay: -4s;
+}
+
+.orb-three {
+  animation-delay: -8s;
+}
+
+.reveal {
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transform: translate3d(0, 24px, 0) scale(0.985);
+  transition:
+    opacity 700ms var(--ease-standard),
+    transform 700ms var(--ease-standard);
+  transition-delay: var(--reveal-delay);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: 0ms;
+}
+
+.reveal.delay-1 {
+  transition-delay: 100ms;
+}
+
+.reveal.delay-2 {
+  transition-delay: 180ms;
+}
+
+.reveal.delay-3 {
+  transition-delay: 260ms;
+}
+
+.portfolio-card {
+  transition:
+    transform 320ms var(--ease-standard),
+    border-color 280ms var(--ease-standard),
+    box-shadow 320ms var(--ease-standard);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 45px -30px rgba(37, 99, 235, 0.55);
+}
+
+.skill-meter {
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.95), rgba(37, 99, 235, 0.95));
+  animation: skill-grow 900ms var(--ease-standard) forwards;
+  animation-play-state: paused;
+}
+
+.reveal.is-visible .skill-meter {
+  animation-play-state: running;
+}
+
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -20px, 0) scale(1.03);
+  }
+}
+
+@keyframes skill-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--level);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .floating-orb,
+  .skill-meter,
+  #cursor {
+    animation: none;
+  }
 }
