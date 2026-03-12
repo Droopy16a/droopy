@@ -157,25 +157,10 @@ const PROJECTS = [
     },
   },
   {
-    name: "Minigame",
-    category: "Web Apps",
-    description:
-      "Mini-game project combining Next.js with Three.js rendering and QR code generation features.",
-    stack: ["Next.js", "TypeScript", "Three.js", "QRCode"],
-    status: "In progress",
-    year: "2026",
-    updated: "Feb 2026",
-    gradient: "from-sky-500/30 via-blue-400/20 to-cyan-600/30",
-    links: {
-      code: "https://github.com/Droopy16a/minigame",
-      demo: "https://jeumobile.vercel.app",
-    },
-  },
-  {
     name: "CVL Osilys",
     category: "Web Apps",
     description:
-      "Interactive CVL platform for OSILYS (2024/25) to present poles, presidents, and activities in a card-based interface.",
+    "Interactive CVL platform for OSILYS (2024/25) to present poles, presidents, and activities in a card-based interface.",
     stack: ["React", "JavaScript", "CSS", "gh-pages"],
     status: "Live",
     year: "2025",
@@ -190,7 +175,7 @@ const PROJECTS = [
     name: "LSTM-CryptoForecast",
     category: "AI/ML",
     description:
-      "Python desktop app for crypto forecasting using TensorFlow LSTM with PyQt6 live visualizations.",
+    "Python desktop app for crypto forecasting using TensorFlow LSTM with PyQt6 live visualizations.",
     stack: ["Python", "TensorFlow", "PyQt6", "Pandas", "scikit-learn"],
     status: "Source",
     year: "2025",
@@ -202,18 +187,18 @@ const PROJECTS = [
     },
   },
   {
-    name: "Rosttatime",
-    category: "Automation",
+    name: "Minigame",
+    category: "Web Apps",
     description:
-      "Browser-extension workflow project with frontend/worker builds powered by Deno and Make tooling.",
-    stack: ["TypeScript", "Deno", "Chrome Extension", "Makefile"],
-    status: "Source",
+      "Mini-game project combining Next.js with Three.js rendering and QR code generation features.",
+    stack: ["Next.js", "TypeScript", "Three.js", "QRCode"],
+    status: "In progress",
     year: "2026",
-    updated: "Jan 2026",
-    gradient: "from-emerald-500/25 via-blue-500/20 to-indigo-500/25",
+    updated: "Feb 2026",
+    gradient: "from-sky-500/30 via-blue-400/20 to-cyan-600/30",
     links: {
-      code: "https://github.com/Droopy16a/Rosttatime",
-      demo: null,
+      code: "https://github.com/Droopy16a/minigame",
+      demo: "https://jeumobile.vercel.app",
     },
   },
 ];
@@ -544,6 +529,7 @@ function Main() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {filteredProjects.map((project, index) => (
+                <a href={project.links.demo || project.links.code}>
                 <article
                   key={`${activeFilter}-${project.name}`}
                   className="reveal portfolio-card group rounded-2xl overflow-hidden border border-white/10 bg-slate-900/65 text-left backdrop-blur-sm hover:border-blue-400/35 transition-colors"
@@ -606,6 +592,7 @@ function Main() {
                     </div>
                   </div>
                 </article>
+                </a>
               ))}
             </div>
           </div>
@@ -655,7 +642,7 @@ function Main() {
         </section>
 
         <footer className="container mx-auto px-4 sm:px-6 pb-10 text-xs sm:text-sm text-slate-400">
-          � {currentYear} Droopy. Built with React and Tailwind.
+          {currentYear} made by Droopy.
         </footer>
       </div>
     </main>
