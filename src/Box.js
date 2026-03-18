@@ -6,12 +6,12 @@ import { faClock } from '@fortawesome/free-solid-svg-icons'
 
 const colorClasses = {
   indigo: {
-    bgLight: 'bg-indigo-500/5',
-    borderLight: 'border-indigo-500/20',
-    borderHover: 'group-hover:border-indigo-500/40',
-    iconBg: 'bg-indigo-900/60 group-hover:bg-indigo-800/70',
-    text: 'text-indigo-300 group-hover:text-indigo-200',
-    link: 'text-indigo-400 hover:text-indigo-300',
+    bgLight: 'bg-indigo-500/10',
+    borderLight: 'border-white/5',
+    borderHover: 'group-hover:border-indigo-500/30',
+    iconBg: 'bg-indigo-500/20',
+    text: 'text-white',
+    link: 'text-indigo-400',
     icon: 'text-indigo-500',
   },
   red: {
@@ -45,12 +45,12 @@ const colorClasses = {
 },
 
   blue : {
-      bgLight: 'bg-blue-500/5',
-      borderLight: 'border-blue-500/20',
-      borderHover: 'group-hover:border-blue-500/40',
-      iconBg: 'bg-blue-900/60 group-hover:bg-blue-800/70',
-      text: 'text-blue-300 group-hover:text-blue-200',
-      link: 'text-blue-400 hover:text-blue-300',
+      bgLight: 'bg-blue-500/10',
+      borderLight: 'border-white/5',
+      borderHover: 'group-hover:border-blue-500/30',
+      iconBg: 'bg-blue-500/20',
+      text: 'text-white',
+      link: 'text-blue-400',
       icon: 'text-blue-500',
   },
 };
@@ -66,17 +66,17 @@ function Box({ title, desc, color = 'indigo', icon = "faCoffee", link = null }) 
   const resolvedIcon = icons[icon] || faCoffee;
 
   return (
-    <div className="relative group h-full">
-      <div className={`absolute inset-0 ${c.bgLight} rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500`}></div>
-      <div className={`border-2 bg-gradient-to-br from-gray-900 ${c.borderLight} rounded-lg p-4 sm:p-6 relative z-10 h-full ${c.borderHover} transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_22px_40px_-24px_rgba(59,130,246,0.8)]`}>
+    <div className="relative group h-full select-none">
+      <div className={`absolute inset-0 ${c.bgLight} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      <div className={`border bg-white/[0.02] ${c.borderLight} rounded-2xl p-6 relative z-10 h-full ${c.borderHover} transition-all duration-300 hover:-translate-y-1`}>
         <div className="flex flex-col h-full">
-          <div className="flex items-center mb-3 sm:mb-4">
-            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded ${c.iconBg} flex items-center justify-center mr-3 transition-colors`}>
+          <div className="flex items-center mb-4">
+            <div className={`w-12 h-12 rounded-xl ${c.iconBg} flex items-center justify-center mr-4 transition-colors`}>
                 <FontAwesomeIcon icon={resolvedIcon} className={c.icon}/>
             </div>
-            <div className={`font-medium text-base sm:text-lg ${c.text} transition-colors`}>{title}</div>
+            <div className={`font-bold text-xl ${c.text} transition-colors`}>{title}</div>
           </div>
-          <p className="text-start text-sm sm:text-base text-gray-400 mb-4">{desc}</p>
+          <p className="text-start text-sm text-slate-400 leading-relaxed">{desc}</p>
           { link ? <a href={link} target="_blank" rel="noreferrer" className={`mt-auto ${c.link} inline-flex items-center text-sm sm:text-base`}>
             Learn more
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
