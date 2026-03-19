@@ -181,8 +181,8 @@ function Main() {
 
   const currentYear = new Date().getFullYear();
 
-  const SectionHeader = ({ subtitle, title }) => (
-    <div className="reveal mb-10 sm:mb-12 text-center md:text-left">
+  const SectionHeader = ({ subtitle, title, forceVisible = false }) => (
+    <div className={`reveal mb-10 sm:mb-12 text-center md:text-left ${forceVisible ? "is-visible" : ""}`}>
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-300 text-xs font-medium uppercase tracking-wider mb-3">
         <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
         {subtitle}
@@ -285,7 +285,7 @@ function Main() {
 
         {/* About Section */}
         <section id="about" className="py-20 sm:py-28 scroll-mt-20">
-          <SectionHeader subtitle="About" title="Crafting digital experiences." />
+          <SectionHeader subtitle="About" title="Crafting digital experiences." forceVisible/>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <article className="reveal rounded-2xl border border-white/5 bg-white/[0.02] p-8 hover:bg-white/[0.04] transition-colors">
@@ -320,7 +320,7 @@ function Main() {
 
         {/* Skills Section */}
         <section id="skills" className="py-20 sm:py-28 scroll-mt-20 border-t border-white/5">
-          <SectionHeader subtitle="Skills" title="The tech stack." />
+          <SectionHeader subtitle="Skills" title="The tech stack." forceVisible />
 
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
             {SKILLS.map((skill, index) => (
@@ -340,7 +340,7 @@ function Main() {
 
         {/* Projects Section */}
         <section id="projects" className="py-20 sm:py-28 scroll-mt-20 border-t border-white/5">
-          <SectionHeader subtitle="Portfolio" title="Selected works." />
+          <SectionHeader subtitle="Portfolio" title="Selected works." forceVisible />
           
           <div className="flex justify-center mb-12 reveal">
             <div className="inline-flex p-1 bg-white/5 rounded-full border border-white/10">
